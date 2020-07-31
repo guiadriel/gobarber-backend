@@ -8,7 +8,10 @@ export default interface IAppointmentsRepository {
    * Agora tem controle total, então podemos criar e salvar ao mesmo tempo
    */
   create(data: ICreateAppointmentDTO): Promise<Appointment>;
-  findByDate(date: Date): Promise<Appointment | undefined>;
+  findByDate(
+    date: Date,
+    provider_id?: string,
+  ): Promise<Appointment | undefined>;
   findAllInMonthFromProvider(
     data: IFindAllInMonthFromProviderDTO,
   ): Promise<Appointment[]>;

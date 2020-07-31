@@ -51,7 +51,12 @@ class ListProviderMonthAvailabilityService {
       });
       let available = true;
 
-      if (isBefore(new Date(year, month - 1, day), new Date(Date.now()))) {
+      if (
+        isBefore(
+          new Date(year, month - 1, day, 23, 59, 59),
+          new Date(Date.now()),
+        )
+      ) {
         available = false;
       }
 
